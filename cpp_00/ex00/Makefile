@@ -6,12 +6,12 @@
 #    By: msloot <msloot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/14 19:19:04 by msloot            #+#    #+#              #
-#    Updated: 2025/06/24 20:14:22 by adelille         ###   ########.fr        #
+#    Updated: 2025/06/24 20:16:39 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =	megaphone
-CC = 	c++
+CXX = 	c++
 RM = 	rm -rf
 
 CXXFLAGS =	-Wall -Werror -Wextra
@@ -89,12 +89,12 @@ launch:
 	$(call progress_bar)
 
 $(NAME):	$(OBJ)
-	$(CC) $(CXXFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 	@$(eval name=1)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.cpp
 	@mkdir -p $(dir $@)
-	$(CC) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 	@printf "$(D)$(PROGRESS_FILL)$(D)"
 
 clean:
