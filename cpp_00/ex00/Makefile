@@ -6,7 +6,7 @@
 #    By: msloot <msloot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/14 19:19:04 by msloot            #+#    #+#              #
-#    Updated: 2025/06/07 21:07:40 by adelille         ###   ########.fr        #
+#    Updated: 2025/06/24 20:12:15 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,9 @@ NAME =	megaphone
 CC = 	c++
 RM = 	rm -rf
 
-CFLAGS =	-Wall -Werror -Wextra
-CFLAGS =	-std=c++98
-# CFLAGS +=	-g
-# CFLAGS +=	-fsanitize=address
-# CFLAGS +=	-O2
+CXXFLAGS =	-Wall -Werror -Wextra
+CXXFLAGS =	-std=c++98
+# CXXFLAGS +=	-g
 
 # **************************************************************************** #
 #	MAKEFILE	#
@@ -91,12 +89,12 @@ launch:
 	$(call progress_bar)
 
 $(NAME):	$(LOCAL_LIB) $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) $(LOCAL_LIB) -o $(NAME)
+	$(CC) $(CXXFLAGS) $(OBJ) $(LOCAL_LIB) -o $(NAME)
 	@$(eval name=1)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.cpp
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CXXFLAGS) -c $< -o $@
 	@printf "$(D)$(PROGRESS_FILL)$(D)"
 
 $(LOCAL_LIB):
