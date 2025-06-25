@@ -1,30 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/25 17:11:38 by msloot            #+#    #+#             */
-/*   Updated: 2025/06/25 21:31:25 by msloot           ###   ########.fr       */
+/*   Created: 2025/06/25 19:38:08 by msloot            #+#    #+#             */
+/*   Updated: 2025/06/25 21:12:38 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
-int	main(void)
+#include <iostream>
+#include <unistd.h>
+
+class Phonebook
 {
-	std::cout << "Welcome to your awesome phonebook!\n";
-	sleep(2);
-	std::system("clear");
+private:
+	Contact	contact[8];
+	size_t	len;
+public:
+	Phonebook(/* args */);
+	~Phonebook();
+};
 
-	while (1)
-	{
-		std::string	input;
-		std::cin >> input;
-		std::system("clear");
-		if (input == "ADD")
-		{
-		}
-	}
-}
+class	Contact
+{
+private:
+	size_t	nbr;
+	char	*first_name;
+	char	*last_name;
+	char	*nickname;
+	size_t	phone_number;
+	char	*darkest_secret;
+public:
+	Contact(/* args */);
+	~Contact();
+};
+
+#endif
