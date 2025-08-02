@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/25 17:11:38 by msloot            #+#    #+#             */
-/*   Updated: 2025/08/02 19:26:54 by msloot           ###   ########.fr       */
+/*   Created: 2025/08/02 18:48:38 by msloot            #+#    #+#             */
+/*   Updated: 2025/08/02 19:21:36 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "Contact.hpp"
 
-int	main(void)
+Contact::Contact()
 {
-	std::cout << "Welcome to your awesome phonebook!" << std::endl;
+}
 
-	PhoneBook 	phone_book; 
-	while (1)
-	{
-		std::string	input;
-		std::cin >> input;
-		phone_book.input(input);
-	}
+Contact::~Contact()
+{
 }

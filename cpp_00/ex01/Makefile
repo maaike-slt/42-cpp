@@ -6,7 +6,7 @@
 #    By: msloot <msloot@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/14 19:19:04 by msloot            #+#    #+#              #
-#    Updated: 2025/06/24 20:16:39 by adelille         ###   ########.fr        #
+#    Updated: 2025/08/02 19:21:21 by msloot           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ PROGRESS_FILL =		$(SECONDARY)█
 SRC_PATH =	./
 OBJ_PATH =	./obj/
 
-SRC_NAME =	phonebook.cpp \
+SRC_NAME =	main.cpp PhoneBook.cpp Contact.cpp \
 
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
 

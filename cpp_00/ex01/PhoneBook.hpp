@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/25 17:11:38 by msloot            #+#    #+#             */
-/*   Updated: 2025/08/02 19:26:54 by msloot           ###   ########.fr       */
+/*   Created: 2025/06/25 19:38:08 by msloot            #+#    #+#             */
+/*   Updated: 2025/08/02 19:21:59 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
-int	main(void)
+#include <iostream>
+#include <cstring>
+#include <unistd.h>
+#include <stdio.h>
+
+#include "Contact.hpp"
+
+class PhoneBook
 {
-	std::cout << "Welcome to your awesome phonebook!" << std::endl;
+private:
+	Contact	contact[8];
+	size_t	amt;
 
-	PhoneBook 	phone_book; 
-	while (1)
-	{
-		std::string	input;
-		std::cin >> input;
-		phone_book.input(input);
-	}
-}
+	bool	_add_contact();
+public:
+	PhoneBook();
+	~PhoneBook();
+
+	bool	input(std::string input);
+};
+
+#endif
