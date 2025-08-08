@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 18:48:40 by msloot            #+#    #+#             */
-/*   Updated: 2025/08/02 19:21:45 by msloot           ###   ########.fr       */
+/*   Updated: 2025/08/08 16:59:08 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,17 @@ class	Contact
 {
 private:
 	size_t	nbr;
-	char	*first_name;
-	char	*last_name;
-	char	*nickname;
-	size_t	phone_number;
-	char	*darkest_secret;
 public:
 	Contact();
 	~Contact();
+
+	std::string	first_name;
+	std::string	last_name;
+	std::string	nickname;
+	std::string	phone_number;
+	std::string	darkest_secret;
+	
+	void	read();
 };
 
 #endif

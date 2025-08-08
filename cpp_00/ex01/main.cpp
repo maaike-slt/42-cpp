@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 17:11:38 by msloot            #+#    #+#             */
-/*   Updated: 2025/08/02 19:26:54 by msloot           ###   ########.fr       */
+/*   Updated: 2025/08/08 17:54:37 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ int	main(void)
 	while (1)
 	{
 		std::string	input;
-		std::cin >> input;
-		phone_book.input(input);
+		if (!std::getline(std::cin, input))
+			break ;
+		if (!phone_book.input(input))
+			break ;
 	}
+	return (0);
 }

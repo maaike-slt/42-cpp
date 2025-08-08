@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 19:38:08 by msloot            #+#    #+#             */
-/*   Updated: 2025/08/02 19:21:59 by msloot           ###   ########.fr       */
+/*   Updated: 2025/08/08 17:01:14 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,13 @@ class PhoneBook
 {
 private:
 	Contact	contact[8];
-	size_t	amt;
-
+	
 	bool	_add_contact();
-public:
+	public:
 	PhoneBook();
 	~PhoneBook();
+	
+	size_t	amt;
 
 	bool	input(std::string input);
 };
