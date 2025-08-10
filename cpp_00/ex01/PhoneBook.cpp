@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 21:05:04 by msloot            #+#    #+#             */
-/*   Updated: 2025/08/10 16:53:59 by msloot           ###   ########.fr       */
+/*   Updated: 2025/08/10 17:22:37 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,24 @@ void	PhoneBook::_search_contact()
 	{
 		std::cout << std::setw(10) << i + 1;
 		std::cout << "|";
-		std::cout << std::setw(10) << contact[i].first_name;
+		this->_format_search(contact[i].first_name);
 		std::cout << "|";
-		std::cout << std::setw(10) << contact[i].last_name;
+		this->_format_search(contact[i].last_name);
 		std::cout << "|";
-		std::cout << std::setw(10) << contact[i].nickname << std::endl;
+		this->_format_search(contact[i].nickname);
+		std::cout << std::endl;
 		i++;
 	}
 	
+}
+
+void	PhoneBook::_format_search(std::string info)
+{
+	if (info.length() > 10)
+	{
+		std::cout << info.substr(0, 9);
+		std::cout << ".";
+	}
+	else
+		std::cout << std::setw(10) << info;
 }
