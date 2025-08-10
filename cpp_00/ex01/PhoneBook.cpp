@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 21:05:04 by msloot            #+#    #+#             */
-/*   Updated: 2025/08/10 17:22:37 by msloot           ###   ########.fr       */
+/*   Updated: 2025/08/10 18:09:02 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ void	PhoneBook::_add_contact()
 
 void	PhoneBook::_search_contact()
 {
-	size_t	i;
+	std::string	index;
+	const char	*tmp;
+	int			num;
+	size_t		i;
 
 	if (this->amt == 0)
 	{
@@ -63,7 +66,27 @@ void	PhoneBook::_search_contact()
 		std::cout << std::endl;
 		i++;
 	}
-	
+	std::cout << "Enter index for all contact inormation" << std::endl;
+	if (!std::getline(std::cin, index))
+		return ;
+	if (index.length() > 1)
+	{
+		std::cout << "Invalid input length" << std::endl;
+		return ;
+	}
+	if (!isdigit(index[0]))
+	{
+		std::cout << "Input must be a digit" << std::endl;
+		return ;
+	}
+	tmp = index.c_str();
+	num = atoi(tmp);
+	if (num < 1 || num > this->amt)
+	{
+		std::cout << "Input index must be between 1 and 8" << std::endl;
+		return;
+	}
+	this->_individual_search(num);
 }
 
 void	PhoneBook::_format_search(std::string info)
@@ -75,4 +98,13 @@ void	PhoneBook::_format_search(std::string info)
 	}
 	else
 		std::cout << std::setw(10) << info;
+}
+
+void	PhoneBook::_individual_search(int num)
+{
+	std::cout << contact[num - 1].first_name << std::endl;
+	std::cout << contact[num - 1].last_name << std::endl;
+	std::cout << contact[num - 1].nickname << std::endl;
+	std::cout << contact[num - 1].phone_number << std::endl;
+	std::cout << contact[num - 1].darkest_secret << std::endl;
 }
