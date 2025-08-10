@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 21:05:04 by msloot            #+#    #+#             */
-/*   Updated: 2025/08/10 18:09:02 by msloot           ###   ########.fr       */
+/*   Updated: 2025/08/10 18:27:26 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	PhoneBook::_search_contact()
 	num = atoi(tmp);
 	if (num < 1 || num > this->amt)
 	{
-		std::cout << "Input index must be between 1 and 8" << std::endl;
+		std::cout << "Input index must be between 1 and " << this->amt << std::endl;
 		return;
 	}
 	this->_individual_search(num);

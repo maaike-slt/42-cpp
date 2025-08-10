@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 17:11:38 by msloot            #+#    #+#             */
-/*   Updated: 2025/08/08 17:54:37 by msloot           ###   ########.fr       */
+/*   Updated: 2025/08/10 18:27:39 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(void)
 	PhoneBook 	phone_book; 
 	while (1)
 	{
+		std::cout << "Input: ADD, SEARCH, EXIT" << std::endl;
 		std::string	input;
 		if (!std::getline(std::cin, input))
 			break ;
