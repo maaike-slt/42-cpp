@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 18:48:40 by msloot            #+#    #+#             */
-/*   Updated: 2025/08/08 16:59:08 by msloot           ###   ########.fr       */
+/*   Updated: 2025/09/10 15:50:56 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ public:
 	std::string	phone_number;
 	std::string	darkest_secret;
 	
-	void	read();
+	bool	read();
 };
 
 #endif

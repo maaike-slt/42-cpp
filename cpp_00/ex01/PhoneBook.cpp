@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 21:05:04 by msloot            #+#    #+#             */
-/*   Updated: 2025/08/10 18:27:26 by msloot           ###   ########.fr       */
+/*   Updated: 2025/09/10 16:06:45 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,13 @@ PhoneBook::~PhoneBook()
 {
 }
 
-bool	PhoneBook::input(std::string input)
+bool PhoneBook::input(std::string input)
 {
 	if (input == "ADD")
-		this->_add_contact();
+	{
+		if (!this->_add_contact())
+			return (false);
+	}
 	else if (input == "SEARCH")
 		this->_search_contact();
 	else if (input == "EXIT")
@@ -33,25 +36,27 @@ bool	PhoneBook::input(std::string input)
 	return (true);
 }
 
-void	PhoneBook::_add_contact()
+bool PhoneBook::_add_contact()
 {
-	this->contact[this->index].read();
+	if (!this->contact[this->index].read())
+		return (false);
 	if (this->amt < 8)
 		this->amt++;
 	this->index = (this->index + 1) % 8;
+	return (true);
 }
 
-void	PhoneBook::_search_contact()
+bool PhoneBook::_search_contact()
 {
-	std::string	index;
-	const char	*tmp;
-	int			num;
-	size_t		i;
+	std::string index;
+	const char *tmp;
+	int num;
+	size_t i;
 
 	if (this->amt == 0)
 	{
 		std::cout << "No contacts to search through" << std::endl;
-		return ;
+		return (true);
 	}
 	i = 0;
 	while (i < this->amt)
@@ -68,28 +73,29 @@ void	PhoneBook::_search_contact()
 	}
 	std::cout << "Enter index for all contact inormation" << std::endl;
 	if (!std::getline(std::cin, index))
-		return ;
+		return (false);
 	if (index.length() > 1)
 	{
 		std::cout << "Invalid input length" << std::endl;
-		return ;
+		return (true);
 	}
 	if (!isdigit(index[0]))
 	{
 		std::cout << "Input must be a digit" << std::endl;
-		return ;
+		return (true);
 	}
 	tmp = index.c_str();
 	num = atoi(tmp);
 	if (num < 1 || num > this->amt)
 	{
 		std::cout << "Input index must be between 1 and " << this->amt << std::endl;
-		return;
+		return (true);
 	}
 	this->_individual_search(num);
+	return (true);
 }
 
-void	PhoneBook::_format_search(std::string info)
+void PhoneBook::_format_search(std::string info)
 {
 	if (info.length() > 10)
 	{
@@ -100,7 +106,7 @@ void	PhoneBook::_format_search(std::string info)
 		std::cout << std::setw(10) << info;
 }
 
-void	PhoneBook::_individual_search(int num)
+void PhoneBook::_individual_search(int num)
 {
 	std::cout << contact[num - 1].first_name << std::endl;
 	std::cout << contact[num - 1].last_name << std::endl;
