@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 19:38:08 by msloot            #+#    #+#             */
-/*   Updated: 2025/09/10 16:04:10 by msloot           ###   ########.fr       */
+/*   Updated: 2025/09/10 18:01:50 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ private:
 
 	bool _add_contact();
 	bool _search_contact();
-	void _format_search(std::string info);
-	void _individual_search(int num);
 
 public:
 	PhoneBook();

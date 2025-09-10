@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 18:48:38 by msloot            #+#    #+#             */
-/*   Updated: 2025/09/10 15:52:21 by msloot           ###   ########.fr       */
+/*   Updated: 2025/09/10 18:04:22 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,36 @@ bool Contact::read()
 	}
 	std::cout << "Contact has succesfully been added" << std::endl;
 	return (true);
+}
+
+void Contact::print()
+{
+	std::cout << this->first_name << std::endl;
+	std::cout << this->last_name << std::endl;
+	std::cout << this->nickname << std::endl;
+	std::cout << this->phone_number << std::endl;
+	std::cout << this->darkest_secret << std::endl;
+}
+
+void Contact::print_table(size_t i)
+{
+	std::cout << std::setw(10) << i + 1;
+	std::cout << "|";
+	this->_format_search(this->first_name);
+	std::cout << "|";
+	this->_format_search(this->last_name);
+	std::cout << "|";
+	this->_format_search(this->nickname);
+	std::cout << std::endl;
+}
+
+void Contact::_format_search(std::string info)
+{
+	if (info.length() > 10)
+	{
+		std::cout << info.substr(0, 9);
+		std::cout << ".";
+	}
+	else
+		std::cout << std::setw(10) << info;
 }

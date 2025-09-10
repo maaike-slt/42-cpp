@@ -6,7 +6,7 @@
 /*   By: msloot <msloot@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 21:05:04 by msloot            #+#    #+#             */
-/*   Updated: 2025/09/10 16:06:45 by msloot           ###   ########.fr       */
+/*   Updated: 2025/09/10 18:04:48 by msloot           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,7 @@ bool PhoneBook::_search_contact()
 	i = 0;
 	while (i < this->amt)
 	{
-		std::cout << std::setw(10) << i + 1;
-		std::cout << "|";
-		this->_format_search(contact[i].first_name);
-		std::cout << "|";
-		this->_format_search(contact[i].last_name);
-		std::cout << "|";
-		this->_format_search(contact[i].nickname);
-		std::cout << std::endl;
+		contact[i].print_table(i);
 		i++;
 	}
 	std::cout << "Enter index for all contact inormation" << std::endl;
@@ -91,26 +84,6 @@ bool PhoneBook::_search_contact()
 		std::cout << "Input index must be between 1 and " << this->amt << std::endl;
 		return (true);
 	}
-	this->_individual_search(num);
+	this->contact[num - 1].print();
 	return (true);
-}
-
-void PhoneBook::_format_search(std::string info)
-{
-	if (info.length() > 10)
-	{
-		std::cout << info.substr(0, 9);
-		std::cout << ".";
-	}
-	else
-		std::cout << std::setw(10) << info;
-}
-
-void PhoneBook::_individual_search(int num)
-{
-	std::cout << contact[num - 1].first_name << std::endl;
-	std::cout << contact[num - 1].last_name << std::endl;
-	std::cout << contact[num - 1].nickname << std::endl;
-	std::cout << contact[num - 1].phone_number << std::endl;
-	std::cout << contact[num - 1].darkest_secret << std::endl;
 }
